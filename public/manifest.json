@@ -1,0 +1,49 @@
+{
+  "name": "PerlerBeads - Perler Beads Generator",
+  "short_name": "PerlerBeads",
+  "description": "Upload images and generate pixel art patterns for perler beads | 拼豆底稿生成器",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF1F2",
+  "theme_color": "#F472B6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["utilities", "productivity"],
+  "lang": "en"
+}
