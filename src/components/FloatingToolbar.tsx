@@ -28,7 +28,7 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
         onClick={onTogglePalette}
         className={`w-12 h-12 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center ${
           isPaletteOpen
-            ? 'bg-blue-500 text-white hover:bg-blue-600'
+            ? 'bg-pink-500 text-white hover:bg-pink-600'
             : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600'
         }`}
         title={isPaletteOpen ? '关闭调色盘' : '打开调色盘'}
@@ -43,7 +43,7 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
         onClick={onToggleMagnifier}
         className={`w-12 h-12 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center ${
           isMagnifierActive
-            ? 'bg-green-500 text-white hover:bg-green-600'
+            ? 'bg-pink-500 text-white hover:bg-pink-600'
             : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600'
         }`}
         title={isMagnifierActive ? '关闭放大镜' : '打开放大镜'}

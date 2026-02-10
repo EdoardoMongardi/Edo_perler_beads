@@ -47,7 +47,7 @@ const ColorStatusBar: React.FC<ColorStatusBarProps> = ({
       </div>
       
       <div className="text-right">
-        <div className="text-lg font-bold text-blue-600">
+        <div className="text-lg font-bold text-pink-600">
           {progressPercentage}%
         </div>
       </div>

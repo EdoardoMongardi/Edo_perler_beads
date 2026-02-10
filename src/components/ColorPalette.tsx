@@ -67,15 +67,15 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({
 
   return (
     // Apply dark mode styles to the container
-    <div className="bg-white dark:bg-gray-900 rounded border border-blue-200 dark:border-gray-700">
+    <div className="bg-white dark:bg-gray-900 rounded border border-pink-200 dark:border-gray-700">
       {/* 色板切换按钮区域 */}
       {fullPaletteColors && fullPaletteColors.length > 0 && onToggleFullPalette && (
-        <div className="flex justify-center p-2 border-b border-blue-100 dark:border-gray-700">
+        <div className="flex justify-center p-2 border-b border-pink-100 dark:border-gray-700">
           <button
             onClick={onToggleFullPalette}
             className={`px-3 py-1.5 text-xs rounded-md transition-all duration-200 flex items-center gap-1.5 ${
               showFullPalette
-                ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-600'
+                ? 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-600'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
@@ -100,22 +100,22 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({
       
       {/* 颜色替换状态提示 */}
       {colorReplaceState?.isActive && (
-        <div className="p-3 border-b border-purple-100 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20">
+        <div className="p-3 border-b border-rose-100 dark:border-rose-800 bg-rose-50 dark:bg-rose-900/20">
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-rose-600 dark:text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
               </svg>
-              <span className="text-sm font-medium text-purple-700 dark:text-purple-300">颜色替换模式</span>
+              <span className="text-sm font-medium text-rose-700 dark:text-rose-300">颜色替换模式</span>
             </div>
             
             {colorReplaceState.step === 'select-source' ? (
-              <div className="text-xs text-purple-600 dark:text-purple-400">
+              <div className="text-xs text-rose-600 dark:text-rose-400">
                 <p className="mb-1">步骤 1/2：点击图中要被替换的颜色</p>
                 <p className="text-gray-500 dark:text-gray-400">选择后将高亮显示该颜色的所有位置</p>
               </div>
             ) : (
-              <div className="text-xs text-purple-600 dark:text-purple-400">
+              <div className="text-xs text-rose-600 dark:text-rose-400">
                 <p className="mb-1">步骤 2/2：从下方色板选择替换成的颜色</p>
                 <div className="flex items-center justify-center gap-2 mt-2">
                   <span className="text-gray-500 dark:text-gray-400">被替换的颜色：</span>
@@ -179,7 +179,7 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({
         {onEraseToggle && (
           <button
             onClick={onEraseToggle}
-            className={`w-12 h-12 rounded border-2 flex-shrink-0 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-400 dark:focus:ring-blue-500 flex items-center justify-center ${
+            className={`w-12 h-12 rounded border-2 flex-shrink-0 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-pink-400 dark:focus:ring-pink-500 flex items-center justify-center ${
               isEraseMode
                 ? 'border-red-500 bg-red-100 dark:bg-red-900 ring-2 ring-offset-1 ring-red-400 dark:ring-red-500 scale-110 shadow-md'
                 : 'border-orange-300 dark:border-orange-600 bg-orange-100 dark:bg-orange-800 hover:border-orange-500 dark:hover:border-orange-400'
@@ -204,17 +204,17 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({
         {onColorReplaceToggle && (
           <button
             onClick={onColorReplaceToggle}
-            className={`w-12 h-12 rounded border-2 flex-shrink-0 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-400 dark:focus:ring-blue-500 flex items-center justify-center ${
+            className={`w-12 h-12 rounded border-2 flex-shrink-0 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-pink-400 dark:focus:ring-pink-500 flex items-center justify-center ${
               colorReplaceState?.isActive
-                ? 'border-purple-500 bg-purple-100 dark:bg-purple-900 ring-2 ring-offset-1 ring-purple-400 dark:ring-purple-500 scale-110 shadow-md'
-                : 'border-purple-300 dark:border-purple-600 bg-purple-100 dark:bg-purple-800 hover:border-purple-500 dark:hover:border-purple-400'
+                ? 'border-rose-500 bg-rose-100 dark:bg-rose-900 ring-2 ring-offset-1 ring-rose-400 dark:ring-rose-500 scale-110 shadow-md'
+                : 'border-rose-300 dark:border-rose-600 bg-rose-100 dark:bg-rose-800 hover:border-rose-500 dark:hover:border-rose-400'
             }`}
             title={colorReplaceState?.isActive ? '退出颜色替换模式' : '颜色替换 (将图中A颜色全部替换为B颜色)'}
             aria-label={colorReplaceState?.isActive ? '退出颜色替换模式' : '开启颜色替换模式'}
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              className={`h-5 w-5 ${colorReplaceState?.isActive ? 'text-purple-600 dark:text-purple-400' : 'text-purple-600 dark:text-purple-400'}`} 
+              className={`h-5 w-5 ${colorReplaceState?.isActive ? 'text-rose-600 dark:text-rose-400' : 'text-rose-600 dark:text-rose-400'}`} 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor" 
@@ -266,10 +266,10 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({
                   onHighlightColor(colorData.color);
                 }
               }}
-            className={`relative w-12 h-12 rounded border-2 flex-shrink-0 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-400 dark:focus:ring-blue-500 flex items-center justify-center ${ 
+            className={`relative w-12 h-12 rounded border-2 flex-shrink-0 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-pink-400 dark:focus:ring-pink-500 flex items-center justify-center ${ 
               isSelected
                 // Apply dark mode styles for selected state
-                ? 'border-black dark:border-gray-100 ring-2 ring-offset-1 ring-blue-400 dark:ring-blue-500 scale-110 shadow-md'
+                ? 'border-black dark:border-gray-100 ring-2 ring-offset-1 ring-pink-400 dark:ring-pink-500 scale-110 shadow-md'
                 // Apply dark mode styles for default/hover state
                 : 'border-gray-300 dark:border-gray-600 hover:border-gray-500 dark:hover:border-gray-400'
             } ${isTransparent ? 'bg-gray-100 dark:bg-gray-700' : ''}`}

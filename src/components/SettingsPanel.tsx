@@ -65,7 +65,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   value="nearest"
                   checked={guidanceMode === 'nearest'}
                   onChange={(e) => onGuidanceModeChange(e.target.value as 'nearest')}
-                  className="mr-3 text-blue-600"
+                  className="mr-3 text-pink-600"
                 />
                 <div>
                   <div className="text-sm font-medium text-gray-700">最近优先</div>
@@ -80,7 +80,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   value="largest"
                   checked={guidanceMode === 'largest'}
                   onChange={(e) => onGuidanceModeChange(e.target.value as 'largest')}
-                  className="mr-3 text-blue-600"
+                  className="mr-3 text-pink-600"
                 />
                 <div>
                   <div className="text-sm font-medium text-gray-700">大块优先</div>
@@ -95,7 +95,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   value="edge-first"
                   checked={guidanceMode === 'edge-first'}
                   onChange={(e) => onGuidanceModeChange(e.target.value as 'edge-first')}
-                  className="mr-3 text-blue-600"
+                  className="mr-3 text-pink-600"
                 />
                 <div>
                   <div className="text-sm font-medium text-gray-700">边缘优先</div>
@@ -119,7 +119,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   type="checkbox"
                   checked={showSectionLines}
                   onChange={(e) => onShowSectionLinesChange(e.target.checked)}
-                  className="h-4 w-4 text-blue-600 rounded"
+                  className="h-4 w-4 text-pink-600 rounded"
                 />
               </label>
 
@@ -180,7 +180,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   type="checkbox"
                   checked={enableCelebration}
                   onChange={(e) => onEnableCelebrationChange(e.target.checked)}
-                  className="h-4 w-4 text-blue-600 rounded"
+                  className="h-4 w-4 text-pink-600 rounded"
                 />
               </label>
             </div>

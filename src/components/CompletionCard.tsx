@@ -440,13 +440,13 @@ const CompletionCard: React.FC<CompletionCardProps> = ({
                   <div className="space-y-3">
                     <button
                       onClick={startCamera}
-                      className="w-full bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+                      className="w-full bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors"
                     >
                       📸 开启相机拍照
                     </button>
                     <button
                       onClick={skipPhoto}
-                      className="w-full bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
+                      className="w-full bg-rose-400 text-white px-6 py-3 rounded-lg hover:bg-rose-500 transition-colors"
                     >
                       🎨 跳过拍照，使用作品图
                     </button>
@@ -462,7 +462,7 @@ const CompletionCard: React.FC<CompletionCardProps> = ({
                   />
                   <button
                     onClick={takePhoto}
-                    className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors mr-2"
+                    className="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors mr-2"
                   >
                     📸 拍照
                   </button>
@@ -490,7 +490,7 @@ const CompletionCard: React.FC<CompletionCardProps> = ({
               <div className="space-y-3">
                 <button
                   onClick={downloadCard}
-                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors"
+                  className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-3 rounded-lg hover:from-pink-600 hover:to-rose-600 transition-colors"
                 >
                   📥 下载打卡图
                 </button>

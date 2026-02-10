@@ -284,7 +284,7 @@ const MagnifierTool: React.FC<MagnifierToolProps> = ({
     <>
       {/* 选择区域提示 */}
       {!selectionArea && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg z-[70]">
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-2 rounded-lg shadow-lg z-[70]">
           <div className="flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -309,7 +309,7 @@ const MagnifierTool: React.FC<MagnifierToolProps> = ({
         >
           {/* 标题栏 */}
           <div 
-            className="flex items-center justify-between p-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-t-xl cursor-move"
+            className="flex items-center justify-between p-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-t-xl cursor-move"
             onMouseDown={handleTitleBarMouseDown}
             onTouchStart={handleTitleBarTouchStart}
           >

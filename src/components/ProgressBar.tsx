@@ -24,7 +24,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       <div
         key={index}
         className={`w-3 h-3 rounded-full ${
-          isFilled ? 'bg-blue-500' : 'bg-gray-300'
+          isFilled ? 'bg-pink-500' : 'bg-gray-300'
         }`}
       />
     );

@@ -124,9 +124,9 @@ export default function AdminPage() {
 
   if (!authenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
-        <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
-          <h1 className="text-xl font-bold text-gray-800 text-center mb-6">Admin Access</h1>
+      <div className="min-h-screen bg-gradient-to-br from-pink-50 to-white flex items-center justify-center p-4">
+        <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-pink-100 p-8">
+          <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400 text-center mb-6">Admin Access</h1>
           <input
             type="password"
             value={secret}
@@ -139,7 +139,7 @@ export default function AdminPage() {
           <button
             onClick={handleLogin}
             disabled={loading}
-            className="w-full py-3 bg-gray-800 text-white font-semibold rounded-xl hover:bg-gray-700 transition-colors disabled:opacity-50"
+            className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold rounded-xl hover:from-pink-600 hover:to-rose-600 transition-colors disabled:opacity-50"
           >
             {loading ? 'Verifying...' : 'Login'}
           </button>
@@ -149,11 +149,11 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-white p-4 md:p-8">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-800">PerlerBeads Admin</h1>
+          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400">PerlerBeads Admin</h1>
           <button
             onClick={() => { setAuthenticated(false); setSecret(''); }}
             className="text-sm text-gray-500 hover:text-gray-700"
@@ -283,7 +283,7 @@ export default function AdminPage() {
                       </td>
                       <td className="py-2 px-2 text-center text-xs">
                         {c.boundDeviceHash ? (
-                          <span className="text-blue-500" title={c.boundDeviceHash}>Bound</span>
+                          <span className="text-pink-500" title={c.boundDeviceHash}>Bound</span>
                         ) : (
                           <span className="text-gray-300">-</span>
                         )}

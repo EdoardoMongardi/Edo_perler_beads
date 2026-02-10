@@ -60,7 +60,7 @@ const ColorPanel: React.FC<ColorPanelProps> = ({
               placeholder="搜索颜色..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
             <svg 
               className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" 
@@ -78,7 +78,7 @@ const ColorPanel: React.FC<ColorPanelProps> = ({
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as 'progress' | 'name' | 'total')}
-            className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           >
             <option value="progress">按进度排序</option>
             <option value="name">按名称排序</option>
@@ -99,7 +99,7 @@ const ColorPanel: React.FC<ColorPanelProps> = ({
                 onClick={() => onColorSelect(colorInfo.color)}
                 className={`w-full p-3 mb-2 rounded-lg border-2 transition-all ${
                   isSelected 
-                    ? 'border-blue-500 bg-blue-50' 
+                    ? 'border-pink-500 bg-pink-50'
                     : 'border-gray-200 bg-white hover:border-gray-300'
                 } ${isCompleted ? 'opacity-60' : ''}`}
               >
@@ -128,7 +128,7 @@ const ColorPanel: React.FC<ColorPanelProps> = ({
                       </div>
                     )}
                     {isSelected && (
-                      <div className="text-blue-500">
+                      <div className="text-pink-500">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
@@ -141,7 +141,7 @@ const ColorPanel: React.FC<ColorPanelProps> = ({
                 <div className="mt-2 w-full bg-gray-200 rounded-full h-1.5">
                   <div 
                     className={`h-1.5 rounded-full transition-all ${
-                      isCompleted ? 'bg-green-500' : 'bg-blue-500'
+                      isCompleted ? 'bg-green-500' : 'bg-pink-500'
                     }`}
                     style={{ width: `${progressPercentage}%` }}
                   />
