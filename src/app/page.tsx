@@ -40,6 +40,10 @@ const floatAnimation = `
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
 `;
 
 // Helper function for sorting color keys - 保留原有实现，因为未在utils中导出
@@ -1892,150 +1896,56 @@ export default function Home() {
 
     {/* Apply dark mode styles to the main container */}
     <div className="min-h-screen p-4 sm:p-6 flex flex-col items-center bg-gradient-to-b from-pink-50/40 to-white dark:from-gray-800 dark:to-gray-900 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
-      {/* Apply dark mode styles to the header */}
-      <header className="w-full md:max-w-4xl text-center mt-6 mb-8 sm:mt-8 sm:mb-10 relative overflow-hidden">
-        {/* Adjust decorative background colors for dark mode */}
-        <div className="absolute top-0 left-0 w-48 h-48 bg-pink-200 dark:bg-pink-900 rounded-full opacity-30 dark:opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-48 h-48 bg-rose-200 dark:bg-pink-900 rounded-full opacity-30 dark:opacity-20 blur-3xl"></div>
+      {/* Header */}
+      <header className="w-full md:max-w-4xl text-center mt-6 mb-8 sm:mt-8 sm:mb-10 relative">
+        {/* Soft background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-200/40 dark:bg-pink-900/20 rounded-full blur-3xl pointer-events-none"></div>
 
-        {/* Adjust decorative dots color */}
-        <div className="absolute top-0 right-0 grid grid-cols-5 gap-1 opacity-20 dark:opacity-10">
-          {[...Array(25)].map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-pink-300 dark:bg-gray-600"></div>
-          ))}
-        </div>
-        <div className="absolute bottom-0 left-0 grid grid-cols-5 gap-1 opacity-20 dark:opacity-10">
-          {[...Array(25)].map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-pink-300 dark:bg-gray-600"></div>
-          ))}
-        </div>
-
-        {/* Header content - Ultra fancy integrated logo and titles */}
+        {/* Header content */}
         <div className="relative z-10 py-8">
-          {/* Integrated super fancy logo and title container */}
-          <div className="relative flex flex-col items-center">
-            {/* Ultra cute hyper-detailed 16-bead icon */}
-            <div className="relative mb-6 animate-float">
-              <div className="relative grid grid-cols-4 gap-2 p-4 bg-white/95 dark:bg-gray-800/95 rounded-3xl shadow-2xl border-4 border-pink-300 dark:border-gray-600">
-                {['bg-pink-300', 'bg-pink-400', 'bg-rose-300', 'bg-pink-200',
-                  'bg-rose-400', 'bg-pink-500', 'bg-rose-200', 'bg-pink-100',
-                  'bg-pink-400', 'bg-rose-300', 'bg-pink-200', 'bg-rose-400',
-                  'bg-pink-300', 'bg-rose-200', 'bg-pink-500', 'bg-rose-300'].map((color, i) => (
-                  <div key={i} className="relative">
-                    <div
-                      className={`w-5 h-5 rounded-full ${color} transition-all duration-500 hover:scale-150 shadow-xl hover:shadow-2xl relative z-10`}
-                      style={{
-                        animation: `float ${2 + (i % 3)}s ease-in-out infinite ${i * 0.1}s`,
-                        boxShadow: `0 0 20px ${color.includes('500') ? '#ec4899' : color.includes('400') ? '#f472b6' : color.includes('300') ? '#f9a8d4' : color.includes('200') ? '#fbcfe8' : '#fce7f3'}70`
-                      }}
-                    ></div>
-                    {/* Mini decorations around each bead */}
-                    {i % 4 === 0 && <div className="absolute -top-0.5 -right-0.5 w-1 h-1 bg-pink-300 rounded-full animate-ping"></div>}
-                    {i % 4 === 1 && <div className="absolute -bottom-0.5 -left-0.5 w-0.5 h-0.5 bg-rose-300 rounded-full animate-pulse"></div>}
-                    {i % 4 === 2 && <div className="absolute -top-0.5 -left-0.5 w-0.5 h-0.5 bg-pink-200 rounded-full animate-bounce"></div>}
-                    {i % 4 === 3 && <div className="absolute -bottom-0.5 -right-0.5 w-1 h-1 bg-rose-400 rounded-full animate-spin"></div>}
-                  </div>
-                ))}
+          <div className="flex flex-col items-center">
+
+            {/* Logo — a single stylised perler bead */}
+            <div className="relative mb-8" style={{ animation: 'logo-float 4s ease-in-out infinite' }}>
+              {/* Outer glow ring */}
+              <div className="absolute inset-0 -m-3 rounded-full bg-gradient-to-br from-pink-300/50 to-rose-300/50 dark:from-pink-600/20 dark:to-rose-600/20 blur-xl"></div>
+
+              {/* Bead body */}
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-pink-400 via-rose-400 to-pink-500 shadow-[0_8px_30px_rgba(244,114,182,0.45)] flex items-center justify-center">
+                {/* Bead hole */}
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/90 dark:bg-gray-900/80 shadow-inner"></div>
+
+                {/* Highlight / specular */}
+                <div className="absolute top-2 left-3 sm:top-2.5 sm:left-4 w-4 h-3 sm:w-5 sm:h-3.5 bg-white/40 rounded-full blur-[2px] rotate-[-25deg]"></div>
               </div>
-              
-              {/* Super cute decorations around the icon */}
-              <div className="absolute -top-3 -right-4 w-3 h-3 bg-gradient-to-br from-pink-300 to-rose-500 rounded-full animate-ping transform rotate-12"></div>
-              <div className="absolute -top-1 -right-2 w-2 h-2 bg-gradient-to-br from-pink-400 to-rose-500 rotate-45 animate-spin"></div>
-              <div className="absolute -bottom-3 -left-4 w-2.5 h-2.5 bg-gradient-to-br from-rose-300 to-pink-500 rounded-full animate-bounce"></div>
-              <div className="absolute -bottom-1 -left-2 w-1.5 h-1.5 bg-gradient-to-br from-pink-200 to-rose-400 rotate-45 animate-pulse"></div>
-              <div className="absolute top-0 -right-1 w-1 h-1 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full animate-pulse delay-100"></div>
-              <div className="absolute -top-2 left-2 w-1 h-1 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-bounce delay-200"></div>
-              <div className="absolute bottom-1 -right-3 w-1.5 h-1.5 bg-gradient-to-br from-rose-300 to-pink-500 rotate-45 animate-spin delay-300"></div>
-              <div className="absolute -bottom-2 right-1 w-0.5 h-0.5 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-ping delay-400"></div>
 
-              {/* Extra tiny sparkles */}
-              <div className="absolute -top-4 left-1 w-0.5 h-0.5 bg-pink-300 rounded-full animate-pulse delay-500"></div>
-              <div className="absolute top-2 -left-4 w-0.5 h-0.5 bg-rose-300 rounded-full animate-bounce delay-600"></div>
-              <div className="absolute -bottom-4 right-2 w-0.5 h-0.5 bg-pink-200 rounded-full animate-ping delay-700"></div>
-              <div className="absolute bottom-2 -right-5 w-0.5 h-0.5 bg-rose-300 rounded-full animate-pulse delay-800"></div>
-            </div>
-
-            {/* Ultra fancy brand name and tool name with hyper cute decorations */}
-            <div className="relative flex flex-col items-center space-y-3">
-              {/* Brand name - PerlerBeads */}
-              <div className="relative">
-                <h1 className="relative text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-400 to-pink-400 tracking-wider drop-shadow-2xl transform hover:scale-105 transition-transform duration-300 animate-bounce">
-                  PerlerBeads
-                </h1>
-                
-                {/* Super fancy geometric decorations */}
-                <div className="absolute -top-4 -right-5 w-4 h-4 bg-gradient-to-br from-pink-300 to-rose-500 rounded-full animate-spin transform rotate-12"></div>
-                <div className="absolute -top-2 -right-2 w-2.5 h-2.5 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full animate-ping"></div>
-                <div className="absolute -top-1 -right-0.5 w-1.5 h-1.5 bg-gradient-to-br from-rose-300 to-pink-500 rotate-45 animate-pulse delay-100"></div>
-                <div className="absolute -bottom-3 -left-5 w-4 h-4 bg-gradient-to-br from-rose-300 to-pink-400 rotate-45 animate-bounce delay-200"></div>
-                <div className="absolute -bottom-1 -left-2 w-2 h-2 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-spin delay-300"></div>
-                <div className="absolute top-0 left-1/2 w-1.5 h-1.5 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full animate-pulse delay-400"></div>
-                <div className="absolute -bottom-4 -right-3 w-3 h-3 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-bounce delay-500"></div>
-                <div className="absolute top-1 -left-4 w-2 h-2 bg-gradient-to-br from-pink-400 to-rose-500 rotate-45 animate-ping delay-600"></div>
-
-                {/* Extra tiny sparkles around brand name */}
-                <div className="absolute -top-3 left-0 w-1 h-1 bg-pink-300 rounded-full animate-pulse delay-700"></div>
-                <div className="absolute -top-2 right-3 w-0.5 h-0.5 bg-rose-300 rounded-full animate-bounce delay-800"></div>
-                <div className="absolute bottom-0 -left-1 w-0.5 h-0.5 bg-pink-200 rounded-full animate-ping delay-900"></div>
-                <div className="absolute bottom-1 right-0 w-1 h-1 bg-rose-300 rounded-full animate-pulse delay-1000"></div>
+              {/* Two small accent beads */}
+              <div className="absolute -bottom-1.5 -right-3 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br from-rose-300 to-pink-400 shadow-md" style={{ animation: 'logo-float 3s ease-in-out infinite 0.5s' }}>
+                <div className="absolute top-1 left-1 w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white/80"></div>
               </div>
-              
-              {/* Tool name */}
-              <div className="relative">
-                <h2 className="relative text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-300 to-pink-300 tracking-widest transform hover:scale-102 transition-all duration-300">
-                  Perler Beads Generator | 拼豆底稿生成器
-                </h2>
-                
-                {/* Super cute geometric shapes */}
-                <div className="absolute -top-3 -left-6 w-3.5 h-3.5 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-bounce delay-75"></div>
-                <div className="absolute -top-1 -left-3 w-2 h-2 bg-gradient-to-br from-rose-300 to-pink-400 rounded-full animate-ping delay-150"></div>
-                <div className="absolute -top-0.5 -left-1 w-1 h-1 bg-gradient-to-br from-pink-200 to-rose-400 rotate-45 animate-pulse delay-225"></div>
-                <div className="absolute -top-3 -right-6 w-3 h-3 bg-gradient-to-br from-rose-300 to-pink-500 rotate-45 animate-spin delay-300"></div>
-                <div className="absolute -top-1 -right-3 w-1.5 h-1.5 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-bounce delay-375"></div>
-                <div className="absolute -bottom-2 -right-3 w-2.5 h-2.5 bg-gradient-to-br from-rose-300 to-pink-400 rounded-full animate-pulse delay-450"></div>
-                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-gradient-to-br from-pink-300 to-rose-500 rotate-45 animate-spin delay-525"></div>
-
-                {/* Mini sparkles around tool name */}
-                <div className="absolute -top-2 left-2 w-0.5 h-0.5 bg-pink-300 rounded-full animate-ping delay-600"></div>
-                <div className="absolute -top-1 right-2 w-1 h-1 bg-rose-300 rounded-full animate-pulse delay-675"></div>
-                <div className="absolute bottom-0 left-4 w-0.5 h-0.5 bg-pink-200 rounded-full animate-bounce delay-750"></div>
-                <div className="absolute bottom-1 right-4 w-0.5 h-0.5 bg-rose-200 rounded-full animate-pulse delay-825"></div>
-                <div className="absolute top-2 -left-2 w-0.5 h-0.5 bg-pink-300 rounded-full animate-ping delay-900"></div>
-                <div className="absolute top-2 -right-2 w-1 h-1 bg-rose-300 rounded-full animate-bounce delay-975"></div>
+              <div className="absolute -top-2 -left-2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-br from-pink-300 to-rose-300 shadow-md" style={{ animation: 'logo-float 3.5s ease-in-out infinite 1s' }}>
+                <div className="absolute top-0.5 left-0.5 w-1 h-1 rounded-full bg-white/70"></div>
               </div>
             </div>
-            
-            {/* Ultra cute floating elements constellation around the entire group */}
-            <div className="absolute -top-10 -left-10 w-3 h-3 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full animate-float"></div>
-            <div className="absolute -top-8 -left-6 w-1.5 h-1.5 bg-gradient-to-br from-rose-300 to-pink-500 rotate-45 animate-spin delay-100"></div>
-            <div className="absolute -top-6 -left-12 w-2 h-2 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-bounce delay-200"></div>
 
-            <div className="absolute -top-10 -right-10 w-2.5 h-2.5 bg-gradient-to-br from-rose-300 to-pink-400 rounded-full animate-ping delay-300"></div>
-            <div className="absolute -top-6 -right-14 w-1 h-1 bg-gradient-to-br from-pink-300 to-rose-400 rotate-45 animate-pulse delay-400"></div>
-            <div className="absolute -top-4 -right-8 w-3 h-3 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full animate-bounce delay-500"></div>
+            {/* Brand name */}
+            <h1 className="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-400 to-pink-400 tracking-wider select-none">
+              PerlerBeads
+            </h1>
 
-            <div className="absolute -bottom-10 -left-10 w-2 h-2 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-pulse delay-600"></div>
-            <div className="absolute -bottom-8 -left-14 w-1.5 h-1.5 bg-gradient-to-br from-rose-300 to-pink-500 rotate-45 animate-spin delay-700"></div>
-            <div className="absolute -bottom-6 -left-6 w-2.5 h-2.5 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-float delay-800"></div>
-            
-            <div className="absolute -bottom-10 -right-10 w-3 h-3 bg-gradient-to-br from-rose-300 to-pink-400 rotate-45 animate-bounce delay-900"></div>
-            <div className="absolute -bottom-8 -right-6 w-1 h-1 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full animate-ping delay-1000"></div>
-            <div className="absolute -bottom-6 -right-14 w-2 h-2 bg-gradient-to-br from-rose-200 to-pink-400 rounded-full animate-pulse delay-1100"></div>
+            {/* Subtitle */}
+            <h2 className="mt-2 text-lg sm:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-300 to-pink-300 tracking-widest">
+              拼豆底稿生成器
+            </h2>
 
-            {/* Extra tiny magical sparkles */}
-            <div className="absolute -top-12 left-0 w-0.5 h-0.5 bg-pink-300 rounded-full animate-ping delay-1200"></div>
-            <div className="absolute -top-2 -left-16 w-1 h-1 bg-rose-300 rounded-full animate-bounce delay-1300"></div>
-            <div className="absolute top-2 -right-18 w-0.5 h-0.5 bg-pink-200 rounded-full animate-pulse delay-1400"></div>
-            <div className="absolute -bottom-12 right-0 w-1 h-1 bg-rose-300 rounded-full animate-float delay-1500"></div>
-            <div className="absolute -bottom-2 -right-16 w-0.5 h-0.5 bg-pink-300 rounded-full animate-ping delay-1600"></div>
-            <div className="absolute bottom-2 -left-18 w-1 h-1 bg-rose-200 rounded-full animate-bounce delay-1700"></div>
-          </div>
-          {/* Separator gradient remains the same */}
-          <div className="h-1 w-24 mx-auto my-3 bg-gradient-to-r from-pink-400 to-rose-300 rounded-full"></div>
-                    {/* Slogan with clean typography */}
-          <p className="mt-4 text-base sm:text-lg font-light text-gray-600 dark:text-gray-300 max-w-lg mx-auto text-center tracking-[0.1em] leading-relaxed">
-            Let pixel creativity belong to everyone | 让像素创意属于每一个人
-          </p>
+            {/* Separator */}
+            <div className="h-0.5 w-16 mx-auto mt-5 mb-4 bg-gradient-to-r from-transparent via-pink-300 to-transparent rounded-full"></div>
+
+            {/* New slogan */}
+            <p className="text-sm sm:text-base font-light text-gray-500 dark:text-gray-400 max-w-md mx-auto text-center tracking-wide leading-relaxed">
+              From image to bead art, effortlessly | 一图成稿，轻松拼豆
+            </p>
+          </div>{/* end flex-col items-center */}
 
           {/* Quota badge */}
           {quota.isRedeemed && quota.remaining !== null && (
